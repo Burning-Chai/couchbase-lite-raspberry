@@ -34,7 +34,7 @@ $ ./create_document CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseN
 
 ## 5. ドキュメント一覧取得
 ```
-$ ./get_all_document  CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName
+$ ./get_all_document CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName
 ```
 * CouchbaseLiteId ... 起動時に表示されたID
 * CouchbaseLitePassword ... 起動時に表示されたパスワード
@@ -43,13 +43,13 @@ $ ./get_all_document  CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabas
 
 ## 6. Couchbase Server との同期
 ```
-$ ./replicate  CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName SyncGatewayIP SyncGateWayDatabaseName
+$ ./replicate CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName SyncGatewayIP SyncGatewayDatabaseName
 ```
 * CouchbaseLiteId ... 起動時に表示されたID
 * CouchbaseLitePassword ... 起動時に表示されたパスワード
 * CouchbaseLiteDatabasName ... 2で指定したデータベース名
 * SyncGatewayIP ... SyncGateWayが起動しているサーバのIP(ポート番号付き)
-* SyncGateWayDatabaseName ... SyncGateWayで用意しているデータベース名
+* SyncGatewayDatabaseName ... SyncGateWayで用意しているデータベース名
 
 --------
 

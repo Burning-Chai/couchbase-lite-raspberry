@@ -48,8 +48,8 @@ $ ./replicate CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName Sy
 * CouchbaseLiteId ... 起動時に表示されたID
 * CouchbaseLitePassword ... 起動時に表示されたパスワード
 * CouchbaseLiteDatabasName ... 2で指定したデータベース名
-* SyncGatewayIP ... SyncGateWayが起動しているサーバのIP(ポート番号付き)
-* SyncGatewayDatabaseName ... SyncGateWayで用意しているデータベース名
+* SyncGatewayIP ... SyncGatewayが起動しているサーバのIP(ポート番号付き)
+* SyncGatewayDatabaseName ... SyncGatewayで用意しているデータベース名
 
 --------
 

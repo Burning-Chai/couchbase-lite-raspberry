@@ -1,11 +1,13 @@
 実行サンプル
 
-./create_database  5012fbf6-d9e4-4454-bee0-c5816a6ec541 d5da1720-9aa1-4b76-a270-62f8a9c5d978 geek
-./get_database     5012fbf6-d9e4-4454-bee0-c5816a6ec541 d5da1720-9aa1-4b76-a270-62f8a9c5d978 geek
-./create_document  5012fbf6-d9e4-4454-bee0-c5816a6ec541 d5da1720-9aa1-4b76-a270-62f8a9c5d978 geek '{"name": "geek", "value": 12}'
-./create_document  5012fbf6-d9e4-4454-bee0-c5816a6ec541 d5da1720-9aa1-4b76-a270-62f8a9c5d978 geek '{"name": "geek", "value": 13}'
-./create_document  5012fbf6-d9e4-4454-bee0-c5816a6ec541 d5da1720-9aa1-4b76-a270-62f8a9c5d978 geek '{"name": "geek", "value": 14}'
-./get_all_document 5012fbf6-d9e4-4454-bee0-c5816a6ec541 d5da1720-9aa1-4b76-a270-62f8a9c5d978 geek
-./replicate        5012fbf6-d9e4-4454-bee0-c5816a6ec541 d5da1720-9aa1-4b76-a270-62f8a9c5d978 geek 52.68.93.247:4984 geek
-./create_document  5012fbf6-d9e4-4454-bee0-c5816a6ec541 d5da1720-9aa1-4b76-a270-62f8a9c5d978 geek '{"name": "geek", "value": 15}'
+java -cp couchbase-lite-local-latest.jar JarMain
+
+./create_database  CouchbaseLiteId CouchbaseLitePassword geek
+./get_database     CouchbaseLiteId CouchbaseLitePassword geek
+./create_document  CouchbaseLiteId CouchbaseLitePassword geek '{"name": "geek", "value": 12}'
+./create_document  CouchbaseLiteId CouchbaseLitePassword geek '{"name": "geek", "value": 13}'
+./create_document  CouchbaseLiteId CouchbaseLitePassword geek '{"name": "geek", "value": 14}'
+./get_all_document CouchbaseLiteId CouchbaseLitePassword geek
+./replicate        CouchbaseLiteId CouchbaseLitePassword geek SyncGateWatIp:4984 geek
+./create_document  CouchbaseLiteId CouchbaseLitePassword geek '{"name": "geek", "value": 15}'
 

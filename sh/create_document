@@ -1,0 +1,21 @@
+#!/bin/sh
+
+if [ $# -lt 4 ]; then
+    echo "./create_database [couchbase list id] [couchbase lite password] [database name] [json data]"
+    exit 1
+fi
+
+ID=$1
+PASS=$2
+DB_NAME=$3
+JSON_DATA=$4
+
+echo "couchbase lite id = $ID"
+echo "couchbase lite password = ******"
+echo "database name = $DB_NAME"
+echo "json data = ${JSON_DATA}"
+echo ""
+
+echo "curl -v -X POST -H 'Content-Type: application/json' -d '${JSON_DATA}' http://$ID:******@localhost:5984/$DB_NAME/"
+curl -v -X POST -H 'Content-Type: application/json' -d "${JSON_DATA}" http://$ID:$PASS@localhost:5984/$DB_NAME/
+

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+if [ $# -lt 4 ]; then
+    echo "./create_database [couchbase list id] [couchbase lite password] [couchbase lite database name] [syncgateway ip] [syncgateway database name]"
+    exit 1
+fi
+
+ID=$1
+PASS=$2
+CL_DB_NAME=$3
+SG_IP=$4
+SG_DB_NAME=$5
+JSON_DATA="{\"source\": \"$CL_DB_NAME\", \"target\": \"http://${SG_IP}/${SG_DB_NAME}/\", \"continuous\": true}"
+
+echo "couchbase lite id = $ID"
+echo "couchbase lite password = ******"
+echo "couchbase lite database name = $CL_DB_NAME"
+echo "syncgateway ip = $SG_IP"
+echo "syncgateway database name = $SG_DB_NAME"
+echo "json data = ${JSON_DATA}"
+echo ""
+
+echo "curl -v -X POST -d '${JSON_DATA}' http://$ID:$PASS@localhost:5984/_replicate"
+curl -v -X POST -d "${JSON_DATA}" http://$ID:$PASS@localhost:5984/_replicate

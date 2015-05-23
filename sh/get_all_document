@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ $# -lt 3 ]; then
+    echo "./create_database [couchbase list id] [couchbase lite password] [database name]"
+    exit 1
+fi
+
+ID=$1
+PASS=$2
+DB_NAME=$3
+
+echo "couchbase lite id = $ID"
+echo "couchbase lite password = ******"
+echo "database name = $DB_NAME"
+echo ""
+
+echo "curl -v -X GET http://$ID:******@localhost:5984/$DB_NAME/_all_docs"
+curl -v -X GET http://$ID:$PASS@localhost:5984/$DB_NAME/_all_docs
+

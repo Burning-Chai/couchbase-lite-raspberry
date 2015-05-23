@@ -53,7 +53,7 @@ $ ./replicate  CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName S
 
 --------
 
-実際に動作した手順は sh/exec_ample.txt に書いてあります。
+実際に動作した手順は sh/exec_sample.txt に書いてあります。
 
 ID/PASS 等を変更して、やってみてください。
 

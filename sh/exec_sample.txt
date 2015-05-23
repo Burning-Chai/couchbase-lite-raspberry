@@ -2,12 +2,12 @@
 
 java -cp couchbase-lite-local-latest.jar JarMain
 
-./create_database  CouchbaseLiteId CouchbaseLitePassword geek
-./get_database     CouchbaseLiteId CouchbaseLitePassword geek
-./create_document  CouchbaseLiteId CouchbaseLitePassword geek '{"name": "geek", "value": 12}'
-./create_document  CouchbaseLiteId CouchbaseLitePassword geek '{"name": "geek", "value": 13}'
-./create_document  CouchbaseLiteId CouchbaseLitePassword geek '{"name": "geek", "value": 14}'
-./get_all_document CouchbaseLiteId CouchbaseLitePassword geek
-./replicate        CouchbaseLiteId CouchbaseLitePassword geek SyncGateWatIp:4984 geek
-./create_document  CouchbaseLiteId CouchbaseLitePassword geek '{"name": "geek", "value": 15}'
+./create_database  CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName
+./get_database     CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName
+./create_document  CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName '{"name": "geek", "value": 12}'
+./create_document  CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName '{"name": "geek", "value": 13}'
+./create_document  CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName '{"name": "geek", "value": 14}'
+./get_all_document CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName
+./replicate        CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName SyncGateWatIp:4984 geek
+./create_document  CouchbaseLiteId CouchbaseLitePassword CouchbaseLiteDatabaseName '{"name": "geek", "value": 15}'
 

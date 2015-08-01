@@ -1,0 +1,37 @@
+#!/bin/sh
+
+if [ $# -lt 4 ]; then
+    echo "Usage:"
+    echo "  ./get_document file [file name] [database name] [document id] [query]"
+    echo "  ./get_document [couchbase list username] [couchbase lite password] [database name] [document id] [query]"
+    echo ""
+    echo "Option:"
+    echo "  query - You should look http://developer.couchbase.com/mobile/develop/references/couchbase-lite/rest-api/local-document/get---db--local--local-doc-/index.html"
+    exit 1
+fi
+id
+if [ $1 -eq "file" ]; then
+    file_content_array=()
+    while read line; do
+        file_content_array+=line
+    done < $1
+    USRENAME=${file_content_array[0]}
+    PASSWORD=${file_content_array[1]}
+else
+    USRENAME=$1
+    PASSWORD=$2
+fi
+DB_NAME=$3
+DOCUMENT_ID=$4
+QUERY=$5
+
+echo "couchbase lite username = $USRENAME"
+echo "couchbase lite password = ******"
+echo "database name = $DB_NAME"
+echo "id = $DOCUMENT_ID"
+echo "query = $QUERY"
+echo ""
+
+echo "curl -v -X GET 'http://$USERNAME:******@localhost:5984/$DB_NAME/$DOCUMENT_ID?QUERY'"
+curl -v -X GET "http://$USERNAME:$PASSWORD@localhost:5984/$DB_NAME/$DOCUMENT_ID?$QUERY"
+

@@ -16,9 +16,18 @@ puts <<-EOF
   #{couchbase_lite_local.url}
 EOF
 
-trap("SIGINT") { exit! }
+couchbase_lite_file_name = 'couchbase_lite_info.txt'
+
+if File.exist?(couchbase_lite_file_name) then
+  File.delete(couchbase_lite_file_name)
+end
+
+open(couchbase_lite_file_name, 'a') { |f|
+  f.write("#{couchbase_lite_local.login}\n")
+  f.write("#{couchbase_lite_local.password}\n")
+}
 
 loop do
-  puts "Press Ctrl-C to shutdown"
   STDIN.gets
 end
+

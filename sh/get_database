@@ -1,18 +1,29 @@
 #!/bin/sh
 
 if [ $# -lt 3 ]; then
-    echo "./create_database [couchbase list id] [couchbase lite password] [database name]"
+    echo "Usage:"
+    echo "  ./get_database file [file name] [database name]"
+    echo "  ./get_database [couchbase list username] [couchbase lite password] [database name]"
     exit 1
 fi
 
-ID=$1
-PASS=$2
+if [ $1 -eq "file" ]; then
+    file_content_array=()
+    while read line; do
+        file_content_array+=line
+    done < $1
+    USRENAME=${file_content_array[0]}
+    PASSWORD=${file_content_array[1]}
+else
+    USRENAME=$1
+    PASSWORD=$2
+fi
 DB_NAME=$3
 
-echo "couchbase lite id = $ID"
+echo "couchbase lite username = $USRENAME"
 echo "couchbase lite password = ******"
 echo "database name = $DB_NAME"
+echo ""
 
-echo "curl -v -X GET http://$ID:******@localhost:5984/$DB_NAME/"
-curl -v -X GET http://$ID:$PASS@localhost:5984/$DB_NAME/
-
+echo "curl -v -X GET http://$USRENAME:******@localhost:5984/$DB_NAME/"
+curl -v -X GET http://$USRENAME:$PASSWORD@localhost:5984/$DB_NAME/

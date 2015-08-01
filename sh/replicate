@@ -1,24 +1,41 @@
 #!/bin/sh
 
-if [ $# -lt 4 ]; then
-    echo "./create_database [couchbase list id] [couchbase lite password] [couchbase lite database name] [syncgateway ip] [syncgateway database name]"
+if [ $# -lt 5 ]; then
+    echo "Usage:"
+    echo "  ./replicate file [file name] [couchbase lite database name] [syncgateway ip] [syncgateway database name]"
+    echo "  ./replicate [couchbase list id] [couchbase lite password] [couchbase lite database name] [syncgateway ip] [syncgateway database name]"
     exit 1
 fi
 
-ID=$1
-PASS=$2
+if [ $1 -eq "file" ]; then
+    file_content_array=()
+    while read line; do
+        file_content_array+=line
+    done < $1
+    USRENAME=${file_content_array[0]}
+    PASSWORD=${file_content_array[1]}
+else
+    USRENAME=$1
+    PASSWORD=$2
+fi
 CL_DB_NAME=$3
 SG_IP=$4
 SG_DB_NAME=$5
-JSON_DATA="{\"source\": \"$CL_DB_NAME\", \"target\": \"http://${SG_IP}/${SG_DB_NAME}/\", \"continuous\": true}"
+PUSH_JSON_DATA="{\"source\": \"$CL_DB_NAME\", \"target\": \"http://${SG_IP}/${SG_DB_NAME}/\", \"continuous\": true}"
+PULL_JSON_DATA="{\"source\": \"http://${SG_IP}/${SG_DB_NAME}/\", \"target\": \"$CL_DB_NAME\", \"continuous\": true}"
 
-echo "couchbase lite id = $ID"
+echo "couchbase lite username = $USERNAME"
 echo "couchbase lite password = ******"
 echo "couchbase lite database name = $CL_DB_NAME"
 echo "syncgateway ip = $SG_IP"
 echo "syncgateway database name = $SG_DB_NAME"
-echo "json data = ${JSON_DATA}"
+echo "push json data = ${PUSH_JSON_DATA}"
+echo "pull json data = ${PULL_JSON_DATA}"
 echo ""
 
-echo "curl -v -X POST -d '${JSON_DATA}' http://$ID:$PASS@localhost:5984/_replicate"
-curl -v -X POST -d "${JSON_DATA}" http://$ID:$PASS@localhost:5984/_replicate
+echo "curl -v -X POST -d '${PUSH_JSON_DATA}' http://$USERNAME:$PASS@localhost:5984/_replicate"
+curl -v -X POST -d "${PUSH_JSON_DATA}" http://$USERNAME:$PASS@localhost:5984/_replicate
+
+echo "curl -v -X POST -d '${PULL_JSON_DATA}' http://$USERNAME:$PASS@localhost:5984/_replicate"
+curl -v -X POST -d "${PULL_JSON_DATA}" http://$USERNAME:$PASS@localhost:5984/_replicate
+

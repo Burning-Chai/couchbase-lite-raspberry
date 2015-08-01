@@ -78,7 +78,7 @@ KEYの一覧を取得するのみです。
     $ ./get_document file [file name] [database name] [document id] [query]"
     $ ./get_document [couchbase list username] [couchbase lite password] [database name] [document id] [query]"
 
-## 6. Couchbase Serverとの同期
+## 8. Couchbase Serverとの同期
 
     $ ./replicate file [file name] [couchbase lite database name] [syncgateway ip] [syncgateway database name]
     $ ./replicate [couchbase list id] [couchbase lite password] [couchbase lite database name] [syncgateway ip] [syncgateway database name]

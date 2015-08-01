@@ -3,7 +3,7 @@
 if [ $# -lt 5 ]; then
     echo "Usage:"
     echo "  ./replicate file [file name] [couchbase lite database name] [syncgateway ip] [syncgateway database name]"
-    echo "  ./replicate [couchbase list id] [couchbase lite password] [couchbase lite database name] [syncgateway ip] [syncgateway database name]"
+    echo "  ./replicate [couchbase list username] [couchbase lite password] [couchbase lite database name] [syncgateway ip] [syncgateway database name]"
     exit 1
 fi
 

@@ -41,6 +41,7 @@ shディレクトリ配下にあります。
  * couchbase_lite_username ... CouchbaseLite認証時のユーザネーム
  * couchbase_lite_passwoed ... CouchbaseLite認証時のパスワード
  * couchbase_lite_database_name ... CouchbaseLite上のデータベース名
+ * document_id ... ドキュメントのID
  * json_data ... JSONデータ
  * query ... ドキュメント取得時の詳細パラメータ([参照](http://developer.couchbase.com/mobile/develop/references/couchbase-lite/rest-api/local-document/get---db--local--local-doc-/index.html))
  * syncgateway_ip ... SyncGatewayが起動しているサーバのIP(ポート番号付き)
@@ -48,38 +49,38 @@ shディレクトリ配下にあります。
 
 ## 2. データベースの作成
 
-    $ ./create_database file [file name] [database name]
-    $ ./create_database [couchbase list username] [couchbase lite password] [database name]
+    $ ./create_database file [file_name] [couchbase_lite_database_name]
+    $ ./create_database [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name]
 
 ## 3. データベースの取得
 
-    $ ./get_database file [file name] [database name]
-    $ ./get_database [couchbase list username] [couchbase lite password] [database name]
+    $ ./get_database file [file_name] [couchbase_lite_database_name]
+    $ ./get_database [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name]
 
 ## 4. データベースの削除
 
-    $ ./delete_database file [file name] [database name]
-    $ ./delete_database [couchbase list username] [couchbase lite password] [database name]
+    $ ./delete_database file [file_name] [couchbase_lite_database_name]
+    $ ./delete_database [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name]
 
 ## 5. ドキュメントの作成
 
-    $ ./create_document file [file name] [database name] [json data]
-    $ ./create_document [couchbase list username] [couchbase lite password] [database name] '[json data]'
+    $ ./create_document file [file_name] [couchbase_lite_database_name] [json_data]
+    $ ./create_document [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name] '[json_data]'
 
 ## 6. ドキュメント一覧取得
 
-    $ ./get_all_document file [file name] [database name]"
-    $ ./get_all_document [couchbase list username] [couchbase lite password] [database name]"
+    $ ./get_all_document file [file_name] [couchbase_lite_database_name]"
+    $ ./get_all_document [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name]"
 
 KEYの一覧を取得するのみです。
 
 ## 7. ドキュメントの取得
 
-    $ ./get_document file [file name] [database name] [document id] [query]"
-    $ ./get_document [couchbase list username] [couchbase lite password] [database name] [document id] [query]"
+    $ ./get_document file [file_name] [couchbase_lite_database_name] [document_id] [query]"
+    $ ./get_document [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name] [document_id] [query]"
 
 ## 8. Couchbase Serverとの同期
 
-    $ ./replicate file [file name] [couchbase lite database name] [syncgateway ip] [syncgateway database name]
-    $ ./replicate [couchbase list id] [couchbase lite password] [couchbase lite database name] [syncgateway ip] [syncgateway database name]
+    $ ./replicate file [file_name] [couchbase_lite_database_name] [syncgateway_ip] [syncgateway_databse_name]
+    $ ./replicate [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name] [syncgateway_ip] [syncgateway_databse_name]
 

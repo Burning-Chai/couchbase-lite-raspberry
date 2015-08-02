@@ -10,9 +10,9 @@
 
 2015/04/24時点でSync GatewayとのReplicateを行うことができませんでした。そこで、内部で使用しているjarのバージョンを上げたところReplicateが無事動作しました。
 
-**２. couchbase liteのusernameとpasswordをファイル出力**
+**２. Couchbase Liteのusernameとpasswordをファイル出力**
 
-couchbase-liteを起動した際にusernameとpasswordを標準出力します。それらを標準出力だけでなく、ファイルにも出力するようにしました。
+Couchbase Liteを起動した際にusernameとpasswordを標準出力します。それらを標準出力だけでなく、ファイルにも出力するようにしました。
 
 **３．強制終了コマンドを受け付けない**
 
@@ -69,15 +69,15 @@ shディレクトリ配下にあります。
 
 ## 6. ドキュメント一覧取得
 
-    $ ./get_all_document file [file_name] [couchbase_lite_database_name]"
-    $ ./get_all_document [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name]"
+    $ ./get_all_document file [file_name] [couchbase_lite_database_name]
+    $ ./get_all_document [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name]
 
 KEYの一覧を取得するのみです。
 
 ## 7. ドキュメントの取得
 
-    $ ./get_document file [file_name] [couchbase_lite_database_name] [document_id] [query]"
-    $ ./get_document [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name] [document_id] [query]"
+    $ ./get_document file [file_name] [couchbase_lite_database_name] [document_id] [query]
+    $ ./get_document [couchbase_list_username] [couchbase_lite_password] [couchbase_lite_database_name] [document_id] [query]
 
 ## 8. Couchbase Serverとの同期
 

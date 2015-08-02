@@ -30,7 +30,7 @@ shディレクトリ配下にあります。
 
 ## 1. couchbase lite 起動
 
-    $ java -jar couchbase-lite-local-latest.jar
+    $ java -jar couchbase-lite-local-new.jar
 
 ここでusernameとpasswordが表示されます。これをメモしておいてください。
 

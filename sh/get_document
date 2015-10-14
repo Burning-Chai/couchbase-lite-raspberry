@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -lt 4 ]; then
     echo "Usage:"
@@ -9,11 +9,11 @@ if [ $# -lt 4 ]; then
     echo "  query - You should look http://developer.couchbase.com/mobile/develop/references/couchbase-lite/rest-api/local-document/get---db--local--local-doc-/index.html"
     exit 1
 fi
-id
+
 if [ $1 -eq "file" ]; then
     file_content_array=()
     while read line; do
-        file_content_array+=line
+        file_content_array+=(${line})
     done < $1
     USRENAME=${file_content_array[0]}
     PASSWORD=${file_content_array[1]}

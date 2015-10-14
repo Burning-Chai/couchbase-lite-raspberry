@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -lt 4 ]; then
     echo "Usage:"
@@ -10,7 +10,7 @@ fi
 if [ $1 -eq "file" ]; then
     file_content_array=()
     while read line; do
-        file_content_array+=line
+        file_content_array+=(${line})
     done < $1
     USRENAME=${file_content_array[0]}
     PASSWORD=${file_content_array[1]}

@@ -20,21 +20,33 @@ Couchbase Liteを起動した際にusernameとpasswordを標準出力します�
 
 を削除
 
+**４．標準入力を待ち続けない**
+
+    loop do
+      puts "Press Ctrl-C to shutdown"
+      STDIN.gets
+    end
+
+を
+
+    loop do
+    end
+    
+に変更
+
 # jarの作成の仕方
 上記の変更を行いましたので、再度jarを作成しました。
 
-    $ jar cfm couchbase-lite-local-new.jar ./META-INF/MANIFEST.MF JarMain.class META-INF/ couchbase-lite-local
+    $ jar cfm cbl.jar ./META-INF/MANIFEST.MF JarMain.class META-INF/ couchbase-lite-local
 
 # 作成したシェルについて
 shディレクトリ配下にあります。
 
 ## 1. couchbase lite 起動
 
-    $ java -jar couchbase-lite-local-new.jar
+    $ nohup java -jar cbl.jar &
 
-ここでusernameとpasswordが表示されます。これをメモしておいてください。
-
-また、今回の修正でcouchbase_lite_info.txtにusernameとpasswordが出力されますので、そちらを参照ください。
+今回の修正でcouchbase_lite_info.txtにusernameとpasswordが出力されます。
 
 ## パラメータについて
  * file_name ... 起動時に作成されたファイルへのパス

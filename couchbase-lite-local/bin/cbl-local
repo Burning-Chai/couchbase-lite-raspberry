@@ -28,6 +28,5 @@ open(couchbase_lite_file_name, 'a') { |f|
 }
 
 loop do
-  STDIN.gets
 end
 

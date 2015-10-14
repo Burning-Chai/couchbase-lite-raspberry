@@ -7,11 +7,11 @@ if [ $# -lt 5 ]; then
     exit 1
 fi
 
-if [ $1 -eq "file" ]; then
+if [ $1 = "file" ]; then
     file_content_array=()
     while read line; do
         file_content_array+=(${line})
-    done < $1
+    done < $2
     USRENAME=${file_content_array[0]}
     PASSWORD=${file_content_array[1]}
 else

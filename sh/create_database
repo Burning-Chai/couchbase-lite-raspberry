@@ -20,10 +20,10 @@ else
 fi
 DB_NAME=$3
 
-echo "couchbase lite username = $USRENAME"
+echo "couchbase lite username = ${USRENAME}"
 echo "couchbase lite password = ******"
-echo "database name = $DB_NAME"
+echo "database name = ${DB_NAME}"
 echo ""
 
-echo "curl -v -H 'Content-Type: application/json' -X PUT http://$USRENAME:******@localhost:5984/$DB_NAME/"
-curl -v -H 'Content-Type: application/json' -X PUT http://$USRENAME:$PASSWORD@localhost:5984/$DB_NAME/
+echo "curl -v -H 'Content-Type: application/json' -X PUT http://${USRENAME}:******@localhost:5984/${DB_NAME}/"
+curl -v -H 'Content-Type: application/json' -X PUT http://${USRENAME}:${PASSWORD}@localhost:5984/${DB_NAME}/

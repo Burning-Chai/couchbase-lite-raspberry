@@ -12,21 +12,21 @@ if [ $1 = "file" ]; then
     while read line; do
         file_content_array+=(${line})
     done < $2
-    USRENAME=${file_content_array[0]}
+    USERNAME=${file_content_array[0]}
     PASSWORD=${file_content_array[1]}
 else
-    USRENAME=$1
+    USERNAME=$1
     PASSWORD=$2
 fi
 DB_NAME=$3
 JSON_DATA=$4
 
-echo "couchbase lite username = $USERNAME"
+echo "couchbase lite username = ${USERNAME}"
 echo "couchbase lite password = ******"
-echo "database name = $DB_NAME"
+echo "database name = ${DB_NAME}"
 echo "json data = ${JSON_DATA}"
 echo ""
 
-echo "curl -v -X POST -H 'Content-Type: application/json' -d '${JSON_DATA}' http://$USERNAME:******@localhost:5984/$DB_NAME/"
-curl -v -X POST -H 'Content-Type: application/json' -d "${JSON_DATA}" http://$USERNAME:$PASS@localhost:5984/$DB_NAME/
+echo "curl -v -X POST -H 'Content-Type: application/json' -d '${JSON_DATA}' http://${USERNAME}:******@localhost:5984/${DB_NAME}/"
+curl -v -X POST -H 'Content-Type: application/json' -d "${JSON_DATA}" http://${USERNAME}:${PASSWORD}@localhost:5984/${DB_NAME}/
 

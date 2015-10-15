@@ -12,19 +12,19 @@ if [ $1 = "file" ]; then
     while read line; do
         file_content_array+=(${line})
     done < $2
-    USRENAME=${file_content_array[0]}
+    USERNAME=${file_content_array[0]}
     PASSWORD=${file_content_array[1]}
 else
-    USRENAME=$1
+    USERNAME=$1
     PASSWORD=$2
 fi
 DB_NAME=$3
 
-echo "couchbase lite username = $USRENAME"
+echo "couchbase lite username = ${USERNAME}"
 echo "couchbase lite password = ******"
-echo "database name = $DB_NAME"
+echo "database name = ${DB_NAME}"
 echo ""
 
-echo "curl -v -X GET http://$USERNAME:******@localhost:5984/$DB_NAME/_all_docs"
-curl -v -X GET http://$USERNAME:$PASSWORD@localhost:5984/$DB_NAME/_all_docs
+echo "curl -v -X GET http://${USERNAME}:******@localhost:5984/${DB_NAME}/_all_docs"
+curl -v -X GET http://${USERNAME}:${PASSWORD}@localhost:5984/${DB_NAME}/_all_docs
 
